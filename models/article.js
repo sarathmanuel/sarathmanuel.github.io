@@ -6,11 +6,13 @@ var ArticleSchema = new mongoose.Schema({
 	title:			{ type: String, required: true },
 	body: 			{ type: String, required: true },
 	date:			{ type: String, required: true },
-	source:			{ type: String, required: true },
 	url:			{ type: String, required: true },
+	source:			{ type: String },
 	tags:			{ type: Array },
-	likes:			{ type: Number, required: true },		//starts as 0, can go negative
-	hidden: 		{ type: Boolean, required: true },		//starts as false
+	likes:			{ type: Number, default: 0 },			//can go negative
+	views:			{ type: Number, default: 0 },			//need to find a way to make this unique views.
+	shares:			{ type: Number, default: 0 },
+	hidden: 		{ type: Boolean, default: false, required: true },
 }, { timestamps : true });
 
 module.exports = mongoose.model('Article', ArticleSchema);
