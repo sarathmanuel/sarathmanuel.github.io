@@ -1,1 +1,1 @@
-angular.module('mncApp', ['ui.router', 'ui.bootstrap', 'ngAnimate']);
+angular.module('mncApp', ['ui.router', 'ngAnimate', 'ui.bootstrap']);

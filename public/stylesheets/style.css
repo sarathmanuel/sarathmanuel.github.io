@@ -54,6 +54,9 @@ hr.small {
   border-width: 4px;
   border-color: white;
 }
+.navbar-collapse {
+  overflow:hidden!important;
+}
 .navbar-custom {
   position: absolute;
   top: 0;
