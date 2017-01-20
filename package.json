@@ -1,0 +1,29 @@
+{
+  "name": "motor-and-code",
+  "version": "1.0.0",
+  "title": "Motor and Code",
+  "description": "News site for the internet of cars",
+  "author": "Sarath Manuel and Kenneth Lin",
+  "homepage": "http://motorandcode.com",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-ui-bootstrap": "^2.4.0",
+    "angular-ui-router": "^0.3.2",
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.5.2",
+    "express": "~4.14.0",
+    "express-session": "^1.14.2",
+    "mongoose": "^4.7.7",
+    "morgan": "~1.7.0",
+    "request": "^2.79.0",
+    "serve-favicon": "~2.3.0"
+  }
+}
