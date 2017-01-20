@@ -1,0 +1,1 @@
+angular.module('mncApp', ['ui.router', 'ui.bootstrap', 'ngAnimate']);
