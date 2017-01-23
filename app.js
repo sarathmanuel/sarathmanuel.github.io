@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var passport = require('passport'); 
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -41,6 +42,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
+// REQUIRE passport strategy config files. (and apply them)
+var passportApplyConfig = require('./passport/passport.js');
+passportApplyConfig(passport);
+
+//Use routes here
 app.use('/', index);
 app.use('/users', users);
 
