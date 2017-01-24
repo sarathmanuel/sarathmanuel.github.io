@@ -29,32 +29,13 @@ router.post('/register', function(req, res, next){
 			else {
 				return res.status(401).json(info);
 			}
-		})(req, res, next);
+		})(req, res, next);		//what the fuck does this line do..?
 	}
-
-
-	// var signupStrat = passport.authenticate('local-signup', function(err, user, info){
-	// 	console.log('passport.authenticate complete:', user);
-	// });
-	// return signupStrat(req, res, next);
-
-	// var signUpStrategy = passport.authenticate('local-signup', {
-	// 	successRedirect: '/',
-	// 	failureRedirect: '/'
-	// })
-	// if (!req.body.username || !req.body.password){
-	// 	return res.status(400).json({ message: 'Please fill out all fields' });
-	// }
-  	// else {
-		// passport.authenticate('local-signup', function(req, res){
-		// 	console.log('authenticated signup. returning res.json user.generateJWT...', req.user);
-		// 	return res.json({ token: req.user.generateJWT() });
-		// });
-	// }
 });
 
 router.post('/login', function(req, res, next){
-	if(!req.body.username || !req.body.password){
+	console.log('>>>POST - Login attempt:', req.body);
+	if(!req.body.emailOrUsername || !req.body.password){
 		return res.status(400).json({ message: 'Please fill out all fields' });
 	}
 	else {
@@ -67,7 +48,7 @@ router.post('/login', function(req, res, next){
 			else {
 				return res.status(401).json(info);
 			}
-		})(req, res, next);
+		})(req, res, next);		//what the fuck does this line do..?
 	}
 })
 
