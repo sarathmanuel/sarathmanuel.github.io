@@ -1,5 +1,5 @@
 var passport = require('passport');
-var User = mongoose.model('User');
+var User = require('../models/user.js');
 // var LocalStrategy = require('passport-local').Strategy;
 // var mongoose = require('mongoose');
 
@@ -15,8 +15,8 @@ var User = mongoose.model('User');
 // 	}
 // ));
 
-var localSignupStrategy = require('./local-signup-strategy');
-var localLoginStrategy = require('./local-login-strategy');
+var localSignupStrategy = require('./local-signup-strategy.js');
+var localLoginStrategy = require('./local-login-strategy.js');
 
 var passportConfig = function(passport){
 	// Add strategies

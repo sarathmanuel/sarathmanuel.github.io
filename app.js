@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport'); 
+var User = require('./models/user.js');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -41,9 +42,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use(passport.initialize());
 
 // REQUIRE passport strategy config files. (and apply them)
-var passportApplyConfig = require('./passport/passport.js');
+var passportApplyConfig = require('./config/passport.js');
 passportApplyConfig(passport);
 
 //Use routes here

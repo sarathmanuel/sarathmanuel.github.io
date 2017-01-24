@@ -33,11 +33,11 @@ function(req, email, password, next){
 			newUser.local.email = email;
 			newUser.setPassword(password);
 			newUser.username = req.body.username;
-
 			newUser.save(function(err){
-				if (err) return next(err);
-				
-				return res.json({ token: newUser.generateJWT() });
+			console.log('saved new user to db...', newUser);
+				return next(err, newUser);
+				// save user to db and then generate JWT to log them in immediately
+				// return res.json({ token: newUser.generateJWT() });
 			});
 		}
 	});

@@ -12,10 +12,8 @@ function(req, email, password, next){
 		{ 'username': req.body.emailOrUsername }
   ]},
 		function(err, foundUser){
-			if (err){
-				console.log('Whoops! There was an unknown error.');
-				return next(err);
-			}
+			if (err) return next(err);
+			
 			else if (!foundUser) {
 				console.log('user not found in db');
 				return next(null, false, { message: 'Whoops! Wrong user credentials.' });
