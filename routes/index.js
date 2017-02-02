@@ -1,13 +1,17 @@
 var express = require('express');
 var router = express.Router();
+
 var mongoose = require('mongoose');
-var passport = require('passport');
 var User = require('../models/user.js');
+var Comment = require('../models/comment.js');
+var Article = require('../models/article.js');
+
+var passport = require('passport');
 var jwt = require('express-jwt');
 
 // create middleware to authenticate user's JWT.
 // MUST CHANGE 'secret' LATER TO AN ENVIRONMENT VARIABLE.
-var auth = jwt({ secret: 'SECRET', userProperty: 'payload' });
+var auth = jwt({ secret: 'secret', userProperty: 'payload' });
 
 // GET home page.
 router.get('/', function(req, res, next) {
@@ -56,6 +60,15 @@ router.post('/login', function(req, res, next){
 	}
 });
 
+// route for getting comments.
+router.get ('/comment', function(req, res, next){
+	Comment.find({ })
+	.then(function(articles){
+		console.log(articles);
+		res.json(articles);
+	});
+});
+
 // route for posting comments or replies. needs auth
 router.post ('/comment', auth, function(req, res, next){
 	console.log('>>>POST for new comment received: req.body: ', req.body);
@@ -65,6 +78,11 @@ router.post ('/comment', auth, function(req, res, next){
 router.delete('/comment', auth, function(req, res, next){
 	console.log('>>>DELETE comment: req.body:', req. body);
 });
+
+// Get articles based on current page number.
+router.get('/article', function(req, res, next){
+
+})
 
 // route for editing user's profile. needs auth. then serve new JWT (?).
 router.post('/user', auth, function(req, res, next){

@@ -1,0 +1,24 @@
+<div>
+	<h3>{{ $ctrl.title }}</h3>
+
+	<div ng-show="$ctrl.error" class="alert alert-danger row">
+    	<span>{{ $ctrl.error }}</span>
+	</div>
+
+	<form ng-submit="$ctrl.register()">
+		<label>Email</label>
+		<input type="email" placeholder="Email" ng-model="$ctrl.user.email">
+		<br>
+		<label>Username</label>
+		<input type="text" placeholder="Username" ng-model="$ctrl.user.username">
+		<br>
+		<label>Password</label>
+		<input type="password" placeholder="Password" ng-model="$ctrl.user.password">
+		<br>
+		<label>Confirm Password</label>
+		<input type="password" placeholder="Confirm Password" ng-model="$ctrl.user.confirmPassword">
+		<br>
+
+		<input type="submit" value="Sign Up">
+	</form>
+</div>

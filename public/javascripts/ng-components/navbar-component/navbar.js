@@ -4,6 +4,10 @@ angular.module('mncApp')
 	controller: 'navbarController',
 	controllerAs: '$ctrl'
 })
-.controller('navbarController', function(){
+.controller('navbarController', function(authFactory){
 	this.isNavCollapsed = true;
+
+	this.testToken = function(){
+		console.log('local storage token:', authFactory.getToken());
+	}
 })
