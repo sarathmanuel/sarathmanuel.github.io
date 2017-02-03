@@ -9,6 +9,7 @@ angular.module('mncApp')
 	}
 
 	auth.getToken = function(){
+		console.log('getting token from localstorage:', $window.localStorage['mnc-user-token']);
 		return $window.localStorage['mnc-user-token'];
 	}
 
@@ -17,7 +18,9 @@ angular.module('mncApp')
 
 		if (token){
 			let payload = JSON.parse($window.atob(token.split('.')[1]));
-			return (payload.exp > Date.now() / 1000);	//check if token is expired.
+			console.log('payload', payload);
+			console.log('checking if logged in:', (payload.expiration > Date.now() / 1000));
+			return (payload.expiration > Date.now() / 1000);	//check if token is expired.
 		}
 		else {
 			return false;
@@ -48,12 +51,20 @@ angular.module('mncApp')
 	}
 	
 	auth.login = function(user){
-		return $http.post('/login', user).success(function(data){
-			auth.saveToken(data.token);
-		});
+		return $http.post('/login', user)
+		.then(function successCallback(res){
+			console.log('login successful. response:', res);
+			console.log('saving token to local:', res.data.token);
+			auth.saveToken(res.data.token);
+		})
+		.catch(function(err){
+			console.log('LOGIN ERROR:', err);
+			return err;
+		})
 	};
 	
 	auth.logout = function(){
+		console.log('Logging out. deleting jwt.');
 		$window.localStorage.removeItem('mnc-user-token')
 	}
 

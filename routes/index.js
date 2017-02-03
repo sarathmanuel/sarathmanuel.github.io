@@ -48,9 +48,11 @@ router.post('/login', function(req, res, next){
 	}
 	else {
 		passport.authenticate('local-login', function(err, user, info){
+			console.log('>>>Passport-Login authentication finished. Return user:', user);
 			if (err) return next(err);
 
 			else if (user){
+				console.log('Responding with json token...');
 				return res.json({ token: user.generateJWT() });
 			} 
 			else {

@@ -5,9 +5,15 @@ angular.module('mncApp')
 	controllerAs: '$ctrl'
 })
 .controller('navbarController', function(authFactory){
-	this.isNavCollapsed = true;
+	let vm = this;
 
-	this.testToken = function(){
+	vm.isNavCollapsed = true;
+
+	vm.testToken = function(){
 		console.log('local storage token:', authFactory.getToken());
 	}
+
+	vm.currentUser = authFactory.currentUser;
+	vm.logout = authFactory.logout;
+	vm.isLoggedIn = authFactory.isLoggedIn;
 })
