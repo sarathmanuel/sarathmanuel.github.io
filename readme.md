@@ -7,7 +7,6 @@ Need to have installed to test site:
 * nodemon
 * mongodb
 
-
 Steps:
 
 1. git pull or download all files to project folder.
