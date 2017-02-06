@@ -9,6 +9,7 @@ var passport = require('passport');
 var User = require('./models/user.js');
 
 var index = require('./routes/index');
+var admin = require('./routes/admin');
 var users = require('./routes/users');
 
 var app = express();
@@ -50,6 +51,7 @@ passportApplyConfig(passport);
 
 //Use routes here
 app.use('/', index);
+app.use('/admin', admin);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

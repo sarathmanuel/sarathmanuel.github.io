@@ -8,7 +8,7 @@ function signupController($state, authFactory){
 	console.log('signup controller is alive!');
 
 	let vm = this;
-	vm.title = 'Signup Component';
+	vm.title = 'Signup';
 	vm.user = {};
 
 	vm.register = function(){

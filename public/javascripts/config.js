@@ -9,13 +9,23 @@ angular.module('mncApp')
 	})
 	.state('signup', {
 		url: '/register',
-		template: '<signup></signup>'
-		// component: 'signup'
+		// template: '<signup></signup>',
+		component: 'signup',
+		onEnter: function($state, authFactory){
+			if(authFactory.isLoggedIn()){
+				$state.go('home');
+			}
+		}
 	})
 	.state('login', {
 		url: '/login',
-		template: '<login></login>'
+		template: '<login></login>',
 		// component: 'login'
+		onEnter: function($state, authFactory){
+			if(authFactory.isLoggedIn()){
+				$state.go('home');
+			}
+		}
 	})
 	.state('future', {
 		url: '/future',

@@ -43,7 +43,7 @@ router.post('/register', function(req, res, next){
 // POST user login, respond with JWT.
 router.post('/login', function(req, res, next){
 	console.log('>>>POST - Login attempt:', req.body);
-	if(!req.body.emailOrUsername || !req.body.password){
+	if (!req.body.emailOrUsername || !req.body.password){
 		return res.status(400).json({ message: 'Please fill out all fields' });
 	}
 	else {
@@ -85,18 +85,5 @@ router.delete('/comment', auth, function(req, res, next){
 router.get('/article', function(req, res, next){
 
 })
-
-// route for editing user's profile. needs auth. then serve new JWT (?).
-router.post('/user', auth, function(req, res, next){
-	// for edit username or email: run mongoose check.
-	// for edit password, need confirmPassword validation.
-	console.log('>>>Editing user: req.body:', req.body)
-})
-
-// route for deleting user's account. needs auth. then delete JWT.
-router.delete('/user', auth, function(req, res, next){
-	console.log('>>>DELETE user: req.body:', req. body);
-});
-
 
 module.exports = router;

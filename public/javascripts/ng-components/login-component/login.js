@@ -8,7 +8,7 @@ function loginController($state, authFactory){
 	console.log('login controller is alive!');
 
 	let vm = this;
-	vm.title = 'Login Component';
+	vm.title = 'Login';
 	vm.user = {};
 
 	vm.login = function(){
