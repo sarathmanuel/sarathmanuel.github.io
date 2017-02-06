@@ -10,26 +10,32 @@
 		<!-- collapsed elements begin here -->
 		<div class="collapse navbar-collapse" uib-collapse="$ctrl.isNavCollapsed">
 			<ul class="nav navbar-nav navbar-right">
-				<li>
+				<!--<li>
 					<a ng-click="$ctrl.testToken()">Token!</a>
-				</li>
-				<li>
-					<a ng-click="$ctrl.logout()">Log Out</a>
+				</li>-->
+				<li ng-show="$ctrl.isLoggedIn()">
+					<a href="#" ng-click="$ctrl.logout(); $ctrl.isNavCollapsed=true">Log Out</a>
 				</li>
 				<li ng-show="$ctrl.isLoggedIn()">
 					<a>{{ $ctrl.currentUser() }}</a>
 				</li>
-				<li>
-					<a ui-sref="home" ng-click="$ctrl.isNavCollapsed = true">Home</a>
+				<li ng-show="!$ctrl.isLoggedIn()">
+					<a ui-sref="signup" ng-click="$ctrl.isNavCollapsed=true">Sign Up</a>
+				</li>
+				<li ng-show="!$ctrl.isLoggedIn()">
+					<a ui-sref="login" ng-click="$ctrl.isNavCollapsed=true">Login</a>
 				</li>
 				<li>
-					<a ui-sref="future" ng-click="$ctrl.isNavCollapsed = true">Future</a>
+					<a ui-sref="home" ng-click="$ctrl.isNavCollapsed=true">Home</a>
 				</li>
 				<li>
-					<a ui-sref="fossils" ng-click="$ctrl.isNavCollapsed = true">Fossils</a>
+					<a ui-sref="future" ng-click="$ctrl.isNavCollapsed=true">Future</a>
 				</li>
 				<li>
-					<a ui-sref="opinion" ng-click="$ctrl.isNavCollapsed = true">Opinion</a>
+					<a ui-sref="fossils" ng-click="$ctrl.isNavCollapsed=true">Fossils</a>
+				</li>
+				<li>
+					<a ui-sref="opinion" ng-click="$ctrl.isNavCollapsed=true">Opinion</a>
 				</li>
 			</ul>
 		</div>

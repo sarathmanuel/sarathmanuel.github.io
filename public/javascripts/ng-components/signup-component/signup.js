@@ -1,10 +1,10 @@
 angular.module('mncApp')
 .component('signup', {
 	templateUrl: '/javascripts/ng-components/signup-component/signup.html',
-	controller: 'signupController',
+	controller: signupController,
 	controllerAs: '$ctrl'
 })
-.controller('signupController', function($state, authFactory){
+function signupController($state, authFactory){
 	console.log('signup controller is alive!');
 
 	let vm = this;
@@ -22,11 +22,11 @@ angular.module('mncApp')
 				}
 			}
 			else {
-				$state.go('future');
+				$state.go('home');
 			}
 		})
 		.catch(function(err){
 			vm.error = err.data.message;
-		})
-	}
-})
+		});
+	};
+};

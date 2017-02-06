@@ -9,15 +9,13 @@ angular.module('mncApp')
 	})
 	.state('signup', {
 		url: '/register',
-		templateUrl: 'templates/signup.html',
-		controller: 'signupController',
-		controllerAs: '$ctrl'
+		template: '<signup></signup>'
+		// component: 'signup'
 	})
 	.state('login', {
 		url: '/login',
-		templateUrl: 'templates/login.html',
-		controller: 'loginController',
-		controllerAs: '$ctrl'
+		template: '<login></login>'
+		// component: 'login'
 	})
 	.state('future', {
 		url: '/future',

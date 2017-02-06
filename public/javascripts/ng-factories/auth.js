@@ -18,7 +18,6 @@ angular.module('mncApp')
 
 		if (token){
 			let payload = JSON.parse($window.atob(token.split('.')[1]));
-			console.log('payload', payload);
 			console.log('checking if logged in:', (payload.expiration > Date.now() / 1000));
 			return (payload.expiration > Date.now() / 1000);	//check if token is expired.
 		}
@@ -31,8 +30,6 @@ angular.module('mncApp')
 		if(auth.isLoggedIn()){
 			let token = auth.getToken();
 			let payload = JSON.parse($window.atob(token.split('.')[1]));
-
-			console.log(payload);
 			return payload.username;
 		};
 	};

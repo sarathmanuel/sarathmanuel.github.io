@@ -1,10 +1,10 @@
 angular.module('mncApp')
 .component('login', {
 	templateUrl: '/javascripts/ng-components/login-component/login.html',
-	controller: 'loginController',
+	controller: loginController,
 	controllerAs: '$ctrl'
 })
-.controller('loginController', function($state, authFactory){
+function loginController($state, authFactory){
 	console.log('login controller is alive!');
 
 	let vm = this;
@@ -22,11 +22,11 @@ angular.module('mncApp')
 				}
 			}
 			else {
-				$state.go('fossils');
+				$state.go('home');
 			}
 		})
 		.catch(function(err){
 			vm.error = err.data.message;
-		})
-	}
-})
+		});
+	};
+};
