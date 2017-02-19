@@ -3,13 +3,10 @@ angular.module('mncApp')
 	$stateProvider
 	.state('home', {
 		url: '/',
-		templateUrl: 'templates/index.html',
-		controller: 'homeController',
-		controllerAs: '$ctrl'
+		component: 'index'
 	})
 	.state('signup', {
 		url: '/register',
-		// template: '<signup></signup>',
 		component: 'signup',
 		onEnter: function($state, authFactory){
 			if(authFactory.isLoggedIn()){
@@ -19,8 +16,7 @@ angular.module('mncApp')
 	})
 	.state('login', {
 		url: '/login',
-		template: '<login></login>',
-		// component: 'login'
+		component: 'login',
 		onEnter: function($state, authFactory){
 			if(authFactory.isLoggedIn()){
 				$state.go('home');

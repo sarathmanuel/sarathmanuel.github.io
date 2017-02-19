@@ -1,8 +1,5 @@
+// NEED TO CONVERT ALL OF THESE CONTROLLERS TO COMPONENTS.
 angular.module('mncApp')
-.controller('homeController', function() {
-  console.log('homeController is alive!');
-  this.title = 'Homepage';
-})
 .controller('futureController', function() {
   console.log('futureController is alive!');
 })
